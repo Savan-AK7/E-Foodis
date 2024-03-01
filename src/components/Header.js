@@ -10,7 +10,8 @@ import Table from "react-bootstrap/esm/Table";
 import { DLT } from "../redux/action/action";
 import CardData from "./CardData";
 import { Card } from "react-bootstrap";
-import Search from "./Search";
+import { SRCH } from "../redux/action/action";
+
 
 const Header = () => {
   const [price, setPrice] = useState(0);
@@ -51,7 +52,11 @@ const Header = () => {
       <Navbar bg="dark" variant="dark" style={{ height: "60px" }}>
         <Container>
           <NavLink to="/" className="text-decoration-none text-light mx-3">
-           <img alt="" src="fd logo.png"  style={{ height: "40px" , width:"60px"}}/>
+            <img
+              alt=""
+              src="fd logo.png"
+              style={{ height: "40px", width: "60px" }}
+            />
           </NavLink>
           <Nav className="me-auto">
             <NavLink to="/" className="text-decoration-none text-light">
@@ -59,6 +64,21 @@ const Header = () => {
             </NavLink>
           </Nav>
 
+
+          <form class="d-flex">
+            <input
+              class="form-control me-2"
+              type="search"
+              placeholder="Search Item"
+              aria-label="Search"
+            />
+            <button class="btn btn-outline-success" value={SRCH} onChange={(event)=>dispatch(SRCH(event.target.value))} type="submit">
+              Search
+            </button>
+          </form>
+
+
+          &nbsp; &nbsp; &nbsp;
           <Badge
             badgeContent={getdata.length}
             color="primary"
@@ -74,8 +94,6 @@ const Header = () => {
             ></i>
           </Badge>
         </Container>
- 
-      
 
         <Menu
           id="basic-menu"
@@ -153,7 +171,7 @@ const Header = () => {
                   cursor: "pointer",
                 }}
               ></i>
-              <p style={{ fontSize: 20, color: "red" }}>Your carts is empty</p>
+              <p style={{ fontSize: 20, color: "red" }}>Your order carts is empty</p>
               <img
                 src="./cart.gif"
                 alt=""

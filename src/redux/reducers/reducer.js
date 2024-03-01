@@ -1,5 +1,17 @@
 const INIT_STATE = {
   carts: [],
+  CardData: [
+    { id: 1, name: 'Massala Theoryy' },
+    { id: 2, name: 'Jugaadi Adda' },
+    { id: 3, name: 'La Milano Pizzeria' },
+    { id: 4, name: 'Momoman' },
+    { id: 5, name: 'Jassi De Parathe' },
+    { id: 6, name: 'Anjoy Latenight Meals' },
+    { id: 7, name: 'Hocco Eatery' },
+    { id: 8, name: 'Chai Wai' },
+    { id: 9, name: 'HL Frankie' },
+  ],
+  
 };
 
 export const cartreducer = (state = INIT_STATE, action) => {
@@ -52,9 +64,26 @@ export const cartreducer = (state = INIT_STATE, action) => {
           carts: data,
         };
       }
+
+      case "SRCH":
+        const query = action.payload.toLowerCase();
+      const cardData = state.CardData.filter((CardData) =>
+      CardData.rname.toLowerCase().includes(query)
+      );
+
+      return {
+        ...state,
+        SRCH_ITM:{
+          ...state.SRCH,
+          carts:[query],
+         
+        },
+      };
+        
       break;
 
     default:
       return state;
   }
 };
+ 

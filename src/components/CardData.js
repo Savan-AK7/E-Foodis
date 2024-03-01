@@ -1,6 +1,3 @@
-
-
-
    const CardData = [  
     {
         id: 1,

@@ -18,3 +18,10 @@ export const REMOVE = (iteam) => {
     payload: iteam,
   };
 };
+
+export const SRCH = (query) => {
+  return {  
+    type: "SRCH_ITM",
+    payload: query,
+  };
+};

@@ -42,7 +42,7 @@ const Cards = () => {
                       className="col-lg-12"
                       onClick={() => send(element)}
                     >
-                      Add to Cart
+                      Add to Order
                     </Button>
                   </div>
                 </Card.Body>
